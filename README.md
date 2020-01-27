@@ -19,3 +19,22 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Figma Prototype
 [can be found here](https://www.figma.com/proto/GPZh3JwWvqXSRKI0Lc4kqSa9)
+
+
+## TODO
+1. redo detailed figure 8 svg:
+-  Orange rope to be longer (includes half of mint part)
+-  Other half of mint part attached to green part
+-  left buckle to have right segment on top
+-  right buckle to have left segment on bottom
+
+2. setup to show simple knot initially, then detailed on click
+
+3. in-knot routing - is this possible?
+
+4. once at a stable point, introduce typescript
+
+5. dressing the knot and shape morphing:
+https://css-tricks.com/svg-shape-morphing-works/
+
+^ a demo of how to swap out paths on hover, and morph an svg

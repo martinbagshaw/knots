@@ -7,8 +7,9 @@ import MenuView from './components/MenuView';
 import KnotView from './components/KnotView';
 
 // SimpleSvg and detailedSvg
-import Figure8 from './knots/Figure8';
-// import Fig8Detailed from './knots/Fig8Detailed';
+// import Figure8 from './knots/Figure8';
+import Fig8Detailed from './knots/Fig8Detailed';
+import BasicFig8 from './knots/figure8/BasicFig8';
 
 import { colors } from './style/styleVariables';
 import content from './content';
@@ -28,9 +29,10 @@ export default [
     exact: true,
     path: '/figure-8',
     component: KnotView,
-    SimpleSvg: Figure8,
-    DetailedSvg: Figure8,
-    knotWidth: 500, // 220 for detailed
+    SimpleSvg: BasicFig8,
+    DetailedSvg: Fig8Detailed,
+    // 500 previously. Should be reponsive though we need to have this specific to the knot
+    knotWidth: 220,
     stepCount: 7,
     name: 'Figure 8',
     colour: blue,
