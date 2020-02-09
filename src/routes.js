@@ -10,6 +10,8 @@ import KnotView from './components/KnotView';
 // import Figure8 from './knots/Figure8';
 import Fig8Detailed from './knots/Fig8Detailed';
 import BasicFig8 from './knots/figure8/BasicFig8';
+import BasicBowline from './knots/bowline/BasicBowline';
+
 
 import { colors } from './style/styleVariables';
 import content from './content';
@@ -42,6 +44,7 @@ export default [
     exact: true,
     path: '/bowline',
     component: KnotView,
+    SimpleSvg: BasicBowline,
     name: 'Bowline',
     colour: purple,
     content: bowline,
