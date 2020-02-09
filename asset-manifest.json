@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/knots/static/css/main.4888ec48.chunk.css",
+    "main.js": "/knots/static/js/main.8c803e2e.chunk.js",
+    "main.js.map": "/knots/static/js/main.8c803e2e.chunk.js.map",
+    "runtime-main.js": "/knots/static/js/runtime-main.340a443f.js",
+    "runtime-main.js.map": "/knots/static/js/runtime-main.340a443f.js.map",
+    "static/js/2.be9cb311.chunk.js": "/knots/static/js/2.be9cb311.chunk.js",
+    "static/js/2.be9cb311.chunk.js.map": "/knots/static/js/2.be9cb311.chunk.js.map",
+    "index.html": "/knots/index.html",
+    "precache-manifest.8cb98a4babc8c1ab2ec0051b6b292219.js": "/knots/precache-manifest.8cb98a4babc8c1ab2ec0051b6b292219.js",
+    "service-worker.js": "/knots/service-worker.js",
+    "static/css/main.4888ec48.chunk.css.map": "/knots/static/css/main.4888ec48.chunk.css.map"
+  }
+}
