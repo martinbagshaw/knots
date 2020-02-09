@@ -12,4 +12,12 @@ const Rope = styled.path`
   fill: none;
 `;
 
-export { Mask, Rope };
+const Carabiner = styled.path`
+  fill : ${colors.grey};
+  stroke: ${colors.lightBlue};
+  stroke-width: 20;
+`;
+
+export {
+  Mask, Rope, Carabiner
+};

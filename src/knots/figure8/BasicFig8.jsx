@@ -1,7 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Mask, Rope } from '../common/knotStyles';
 import { colors } from '../../style/styleVariables';
+import { darkenFunc } from '../../style/styleFunctions';
 
 // Simple, static figure 8 in the menu
 
@@ -32,14 +33,15 @@ const pathFourHover = "M 230.521 509.516 C 230.521 509.516 224.855 517.516 219.1
 
 const HoverFig8 = styled.svg`
   pointer-events: none;
-  transition: 0.5s ease;
   path {
     transition: 0.5s ease;
   }
 `;
 
 const BlueRope = styled(Rope)`
-  stroke: ${colors.blue};
+  stroke: ${props => props.ishovered ?
+    css`${darkenFunc(0.2, colors.blue)}` : 
+    colors.blue};
 `;
 
 const BasicFig8 = ({ width = 500, ishovered }) => {
@@ -58,16 +60,24 @@ const BasicFig8 = ({ width = 500, ishovered }) => {
       xmlSpace="preserve">
 
         <Mask d={ishovered ? pathOneHover : pathOne}/>
-        <BlueRope d={ishovered ? pathOneHover : pathOne}/>
+        <BlueRope
+          d={ishovered ? pathOneHover : pathOne}
+          ishovered={ishovered}/>
 
         <Mask d={ishovered ? pathTwoHover : pathTwo}/>
-        <BlueRope d={ishovered ? pathTwoHover : pathTwo}/>
+        <BlueRope
+          d={ishovered ? pathTwoHover : pathTwo}
+          ishovered={ishovered}/>
 
         <Mask d={ishovered ? pathThreeHover : pathThree}/>
-        <BlueRope d={ishovered ? pathThreeHover : pathThree}/>
+        <BlueRope
+          d={ishovered ? pathThreeHover : pathThree}
+          ishovered={ishovered}/>
 
         <Mask d={ishovered ? pathFourHover : pathFour}/>
-        <BlueRope d={ishovered ? pathFourHover : pathFour}/>
+        <BlueRope
+          d={ishovered ? pathFourHover : pathFour}
+          ishovered={ishovered}/>
 
     </HoverFig8>
   );

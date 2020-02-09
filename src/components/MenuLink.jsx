@@ -1,15 +1,11 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import styled, { css } from 'styled-components';
-import { darken } from 'polished';
 
+import { darkenFunc } from '../style/styleFunctions';
 import useHover from '../hooks/useHover';
 import { breakpoint } from '../style/styleVariables';
 import { subTitleMixin } from '../style/Typography';
-
-const darkenFunc = (amount = 0.3, colour) => css`
-  ${darken(amount, colour)}
-`;
 
 const KnotLink = styled(Link)`
   width: 50%;
@@ -32,26 +28,27 @@ const KnotLink = styled(Link)`
   h2, svg {
     transition: 0.5s;
   }
-  :hover svg path:nth-child(even) {
-    stroke: ${props => props.itemcolour && css`${darkenFunc(0.2, props.itemcolour)}`};
-  }
-  :hover h2 {
-    color: ${props => props.itemcolour && css`${darkenFunc(0.2, props.itemcolour)}`};
-  }
 `;
 
+// change darkness depending upon knot
+// - clove hitch
 const KnotTitle = styled.h2`
   ${subTitleMixin};
-  color: ${props => props.colour};
   pointer-events: none;
+  color: ${props => props.ishovered ?
+    css`${darkenFunc(props.darkness, props.colour)}` : 
+    props.colour};
 `;
 
 const MenuLink = ({ path, SimpleSvg, name, colour }) => {
   const [hoverRef, isHovered] = useHover();
+  const darkness = name === 'Clove Hitch' ? 0.1 : 0.2;
   return (
     <KnotLink to={path} itemcolour={colour} ref={hoverRef}>
       {SimpleSvg && <SimpleSvg ishovered={isHovered} />}
-      <KnotTitle colour={colour}>{name}</KnotTitle>
+      <KnotTitle colour={colour} darkness={darkness} ishovered={isHovered}>
+        {name}
+      </KnotTitle>
     </KnotLink>
   );
 }

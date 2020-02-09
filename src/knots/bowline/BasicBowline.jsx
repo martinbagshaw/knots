@@ -1,7 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Mask, Rope } from '../common/knotStyles';
 import { colors } from '../../style/styleVariables';
+import { darkenFunc } from '../../style/styleFunctions';
 
 const pathOne = "M 214.054 0 C 214.054 68.019 214.054 136.039 214.054 204.058 C 216.531 236.327 207.065 315.808 149.382 375.579 C 77.279 450.293 22.448 500.103 20.038 609.563 C 17.628 719.023 129.498 821.052 214.054 821.052 C 298.609 821.052 408.07 796.147 408.07 649.33";
 const pathOneHover = "M 134.054 0 C 134.054 0 134.054 242 134.054 299.5 C 134.054 357 124 377.5 77 424.5 C 30 471.5 20 500.5 20 543.5 C 20 586.5 52.5 649.33 134.054 649.33 C 215.608 649.33 248 598 248 559";
@@ -26,14 +27,15 @@ const pathSevenHover = "M 170.429 552 C 164.141 574.221 160 599.243 160 628 L 16
 
 const HoverBowline = styled.svg`
   pointer-events: none;
-  transition: 0.5s ease;
   path {
     transition: 0.5s ease;
   }
 `;
 
 const PurpleRope = styled(Rope)`
-  stroke: ${colors.purple};
+  stroke: ${props => props.ishovered ?
+    css`${darkenFunc(0.2, colors.purple)}` : 
+    colors.purple};
 `;
 
 const BasicBowline = ({ width = 500, ishovered }) => {
@@ -51,25 +53,39 @@ const BasicBowline = ({ width = 500, ishovered }) => {
       xmlSpace="preserve">
 
         <Mask d={ishovered ? pathFiveHover : pathFive}/>
-        <PurpleRope d={ishovered ? pathFiveHover : pathFive}/>
+        <PurpleRope
+          d={ishovered ? pathFiveHover : pathFive}
+          ishovered={ishovered}/>
 
         <Mask d={ishovered ? pathThreeHover : pathThree}/>
-        <PurpleRope d={ishovered ? pathThreeHover : pathThree}/>
+        <PurpleRope
+          d={ishovered ? pathThreeHover : pathThree}
+          ishovered={ishovered}/>
 
         <Mask d={ishovered ? pathSevenHover : pathSeven}/>
-        <PurpleRope d={ishovered ? pathSevenHover : pathSeven}/>
+        <PurpleRope
+          d={ishovered ? pathSevenHover : pathSeven}
+          ishovered={ishovered}/>
 
         <Mask d={ishovered ? pathOneHover : pathOne}/>
-        <PurpleRope d={ishovered ? pathOneHover : pathOne}/>
+        <PurpleRope
+          d={ishovered ? pathOneHover : pathOne}
+          ishovered={ishovered}/>
 
         <Mask d={ishovered ? pathTwoHover : pathTwo}/>
-        <PurpleRope d={ishovered ? pathTwoHover : pathTwo}/>
+        <PurpleRope
+          d={ishovered ? pathTwoHover : pathTwo}
+          ishovered={ishovered}/>
 
         <Mask d={ishovered ? pathFourHover : pathFour}/>
-        <PurpleRope d={ishovered ? pathFourHover : pathFour}/>
+        <PurpleRope
+          d={ishovered ? pathFourHover : pathFour}
+          ishovered={ishovered}/>
 
         <Mask d={ishovered ? pathSixHover : pathSix}/>
-        <PurpleRope d={ishovered ? pathSixHover : pathSix}/>
+        <PurpleRope
+          d={ishovered ? pathSixHover : pathSix}
+          ishovered={ishovered}/>
 
     </HoverBowline>
   );
