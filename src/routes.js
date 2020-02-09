@@ -11,7 +11,7 @@ import KnotView from './components/KnotView';
 import Fig8Detailed from './knots/Fig8Detailed';
 import BasicFig8 from './knots/figure8/BasicFig8';
 import BasicBowline from './knots/bowline/BasicBowline';
-
+import BasicClove from './knots/clove/BasicClove';
 
 import { colors } from './style/styleVariables';
 import content from './content';
@@ -53,6 +53,7 @@ export default [
     exact: true,
     path: '/clove-hitch',
     component: KnotView,
+    SimpleSvg: BasicClove,
     name: 'Clove Hitch',
     colour: oliveGreen,
     content: clove,
