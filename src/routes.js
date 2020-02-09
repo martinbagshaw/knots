@@ -14,15 +14,13 @@ import BasicBowline from './knots/bowline/BasicBowline';
 import BasicClove from './knots/clove/BasicClove';
 
 import { colors } from './style/styleVariables';
-import content from './content';
 const { grey, blue, purple, oliveGreen, orange } = colors;
-const { figEight, bowline, clove, italian } = content;
-
 
 export default [
   {
     exact: true,
     path: '/',
+    slug: 'menu',
     component: MenuView,
     name: 'Browse Knots',
     colour: grey,
@@ -30,6 +28,7 @@ export default [
   {
     exact: true,
     path: '/figure-8',
+    slug: 'figure8',
     component: KnotView,
     SimpleSvg: BasicFig8,
     DetailedSvg: Fig8Detailed,
@@ -38,32 +37,35 @@ export default [
     stepCount: 7,
     name: 'Figure 8',
     colour: blue,
-    content: figEight,
+    // content: figEight,
   },
   {
     exact: true,
     path: '/bowline',
+    slug: 'bowline',
     component: KnotView,
     SimpleSvg: BasicBowline,
     name: 'Bowline',
     colour: purple,
-    content: bowline,
+    // content: bowline,
   },
   {
     exact: true,
     path: '/clove-hitch',
+    slug: 'clove-hitch',
     component: KnotView,
     SimpleSvg: BasicClove,
     name: 'Clove Hitch',
     colour: oliveGreen,
-    content: clove,
+    // content: clove,
   },
   {
     exact: true,
     path: '/italian-hitch',
+    slug: 'italian-hitch',
     component: KnotView,
     name: 'Italian Hitch',
     colour: orange,
-    content: italian,
+    // content: italian,
   },
 ];

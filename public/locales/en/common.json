@@ -1,0 +1,11 @@
+{
+  "title": "Climbing Knots",
+  "subtitle": "Browse Knots",
+  "switch-to-chrome": "We see that you are using {{browser}}. Please switch to Google Chrome for the best browsing experience.",
+  "knot-overview": {
+    "uses": "Common Uses",
+    "pros": "Benefits",
+    "cons": "Drawbacks"
+  },
+  "step": "Step"
+}
