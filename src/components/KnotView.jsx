@@ -25,6 +25,9 @@
 
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
+
+
 import styled from 'styled-components';
 import { buttonLinkMixin, Button } from './Buttons';
 // import Chevron from './Chevron';
@@ -84,10 +87,12 @@ const StepButton = styled(Button)`
 
 
 
-const KnotView = ({ name, content, DetailedSvg, knotWidth, stepCount }) => {
+const KnotView = ({ slug, DetailedSvg, knotWidth, stepCount }) => {
+
+  const { t } = useTranslation(['common', slug]);
 
   const [step, getStep] = useState(0);
-  console.log('[content.jsx] step', step);
+  // console.log('[content.jsx] step', step);
 
   // const showBackButton
   // const showStepButton
@@ -98,8 +103,8 @@ const KnotView = ({ name, content, DetailedSvg, knotWidth, stepCount }) => {
   return (
     <View isReverse>
       <Info>
-        <Title>{step === 0 ? name : `Step ${step}`}</Title>
-        <Paragraph>{step === 0 ? content.intro : content[`step${step}`]}</Paragraph>
+        <Title>{step === 0 ? t(`${slug}:title`) : t('common:step')` ${step}`}</Title>
+        <Paragraph>{step === 0 ? t(`${slug}:overview.paragraph`) : t(`${slug}:steps.${step}`)}</Paragraph>
         
         {/* <StepLink to={`figure-8/step-${step + 1}`}>{`Step ${step + 1}`}
           <Chevron fill="white"/>

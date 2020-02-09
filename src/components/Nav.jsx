@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { containerMixin } from '../style/Layout';
@@ -40,12 +41,14 @@ const BackLink = styled(Link)`
   display: flex;
 `;
 
-const Nav = ({ name, path, colour }) => {
+const Nav = ({ slug, path, colour }) => {
+  const { t } = useTranslation(['common', slug]);
+  const subTitle = slug === 'menu' ? t('common:subtitle') : t(`${slug}:title`);
   return (
     <NavBar>
       <NavContainer>
         {path !== '/' && <BackLink to='/'><Chevron direction="left"/></BackLink>}
-        Climbing Knots | <NavLink to={path} colour={colour}>{name}</NavLink>
+        {t('common:title')} | <NavLink to={path} colour={colour}>{subTitle}</NavLink>
       </NavContainer>
     </NavBar>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 import styled, { css } from 'styled-components';
 
 import { darkenFunc } from '../style/styleFunctions';
@@ -40,17 +41,18 @@ const KnotTitle = styled.h2`
     props.colour};
 `;
 
-const MenuLink = ({ path, SimpleSvg, name, colour }) => {
+const MenuLink = ({ slug, path, SimpleSvg, colour }) => {
+  const { t } = useTranslation(slug);
   const [hoverRef, isHovered] = useHover();
-  const darkness = name === 'Clove Hitch' ? 0.1 : 0.2;
+  const darkness = slug === 'clove-hitch' ? 0.1 : 0.2;
   return (
     <KnotLink to={path} itemcolour={colour} ref={hoverRef}>
       {SimpleSvg && <SimpleSvg ishovered={isHovered} />}
       <KnotTitle colour={colour} darkness={darkness} ishovered={isHovered}>
-        {name}
+        {t('title')}
       </KnotTitle>
     </KnotLink>
   );
-}
+};
 
 export default MenuLink;

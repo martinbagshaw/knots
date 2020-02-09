@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { Suspense }  from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import './i18n/i18n';
 import styled from 'styled-components';
 
+import SuspenseLoader from './components/SuspenseLoader';
 import routes from './routes';
 import Nav from './components/Nav';
 import { colors, fontFamily} from './style/styleVariables';
@@ -34,30 +36,34 @@ const Main = styled.main`
   max-height: 100vh;
 `;
 
+
 const App = () => {
 
   return (
-    <AppContainer>
-      <Router>
-        <Switch>
-          {routes.map(route => {
-            const View = route.component;
-            // const hasSteps = route.stepCount;
-            // if (hasSteps) {
-            //   new Array(route.stepCount).map((v, i) => <Route key={`${route.path}/${i}`}} path={route.path} />)
-            // }
-            return (
-              <Route key={route.path} path={route.path} exact={route.exact}>
-                <Nav {...route} />
-                <Main>
-                  <View {...route} />
-                </Main>
-              </Route>
-            );
-          })}
-        </Switch>
-      </Router>
-    </AppContainer>
+
+    <Suspense fallback={<SuspenseLoader />}>
+      <AppContainer>
+        <Router>
+          <Switch>
+            {routes.map(route => {
+              const View = route.component;
+              // const hasSteps = route.stepCount;
+              // if (hasSteps) {
+              //   new Array(route.stepCount).map((v, i) => <Route key={`${route.path}/${i}`}} path={route.path} />)
+              // }
+              return (
+                <Route key={route.path} path={route.path} exact={route.exact}>
+                  <Nav {...route} />
+                  <Main>
+                    <View {...route} />
+                  </Main>
+                </Route>
+              );
+            })}
+          </Switch>
+        </Router>
+      </AppContainer>
+    </Suspense>
   );
 }
 
