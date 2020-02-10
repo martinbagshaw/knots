@@ -90,21 +90,18 @@ const StepButton = styled(Button)`
 const KnotView = ({ slug, DetailedSvg, knotWidth, stepCount }) => {
 
   const { t } = useTranslation(['common', slug]);
-
   const [step, getStep] = useState(0);
   // console.log('[content.jsx] step', step);
 
-  // const showBackButton
-  // const showStepButton
+  const title = step === 0 ? t(`${slug}:title`) : `${t('common:step')} ${step}`;
+  const paragraph = step === 0 ? t(`${slug}:overview.paragraph`) : t(`${slug}:steps.${step}`);
 
-  // stepCount in route, not button
-  // <Chevron direction="left"/>
 
   return (
     <View isReverse>
       <Info>
-        <Title>{step === 0 ? t(`${slug}:title`) : t('common:step')` ${step}`}</Title>
-        <Paragraph>{step === 0 ? t(`${slug}:overview.paragraph`) : t(`${slug}:steps.${step}`)}</Paragraph>
+        <Title>{title}</Title>
+        <Paragraph>{paragraph}</Paragraph>
         
         {/* <StepLink to={`figure-8/step-${step + 1}`}>{`Step ${step + 1}`}
           <Chevron fill="white"/>

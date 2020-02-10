@@ -37,18 +37,18 @@ const KnotTitle = styled.h2`
   ${subTitleMixin};
   pointer-events: none;
   color: ${props => props.ishovered ?
-    css`${darkenFunc(props.darkness, props.colour)}` : 
-    props.colour};
+    css`${darkenFunc(props.darkness, props.color)}` : 
+    props.color};
 `;
 
-const MenuLink = ({ slug, path, SimpleSvg, colour }) => {
+const MenuLink = ({ slug, path, SimpleSvg, color }) => {
   const { t } = useTranslation(slug);
   const [hoverRef, isHovered] = useHover();
   const darkness = slug === 'clove-hitch' ? 0.1 : 0.2;
   return (
-    <KnotLink to={path} itemcolour={colour} ref={hoverRef}>
+    <KnotLink to={path} itemcolor={color} ref={hoverRef}>
       {SimpleSvg && <SimpleSvg ishovered={isHovered} />}
-      <KnotTitle colour={colour} darkness={darkness} ishovered={isHovered}>
+      <KnotTitle color={color} darkness={darkness} ishovered={isHovered}>
         {t('title')}
       </KnotTitle>
     </KnotLink>
