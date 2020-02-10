@@ -29,7 +29,7 @@ const NavContainer = styled.nav`
 `;
 
 const NavLink = styled(Link)`
-  color: ${props => props.colour};
+  color: ${props => props.color};
   text-decoration: none;
   padding-left: 0.5rem;
 `;
@@ -41,14 +41,14 @@ const BackLink = styled(Link)`
   display: flex;
 `;
 
-const Nav = ({ slug, path, colour }) => {
+const Nav = ({ slug, path, color }) => {
   const { t } = useTranslation(['common', slug]);
   const subTitle = slug === 'menu' ? t('common:subtitle') : t(`${slug}:title`);
   return (
     <NavBar>
       <NavContainer>
         {path !== '/' && <BackLink to='/'><Chevron direction="left"/></BackLink>}
-        {t('common:title')} | <NavLink to={path} colour={colour}>{subTitle}</NavLink>
+        {t('common:title')} | <NavLink to={path} color={color}>{subTitle}</NavLink>
       </NavContainer>
     </NavBar>
   );

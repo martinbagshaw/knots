@@ -1,27 +1,21 @@
 import React, { Suspense }  from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './i18n/i18n';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import SuspenseLoader from './components/SuspenseLoader';
 import routes from './routes';
 import Nav from './components/Nav';
-import { colors, fontFamily} from './style/styleVariables';
+import MenuView from './components/MenuView';
+import KnotView from './components/KnotView';
+
+import { lightenFunc } from './style/styleFunctions';
+import { colors, fontFamily } from './style/styleVariables';
 import './style/reset.css';
-
-// figma 
-// https://www.figma.com/proto/GPZh3JwWvqXSRKI0Lc4kqSa9/Knots---mobile?scaling=contain&node-id=1%3A3
-
-// TODO:
-// 1. setup with routing
-// 2. remove unused stuff
-// 3. port to typescript
-// 4. internationalisation (i18n)
-// 5. transitions (slide in/out)
 
 const AppContainer = styled.div`
   max-height: 100vh;
-  background-color: ${colors.lightBlue};
+  background-color: ${props => props.theme};
   @import url('https://fonts.googleapis.com/css?family=Asap:400,600');
   font-family: ${fontFamily.main};
   font-size: 1.25rem;
@@ -36,33 +30,43 @@ const Main = styled.main`
   max-height: 100vh;
 `;
 
+const lightIndex = {
+  figure8: 0.26,
+  bowline: 0.23,
+  'clove-hitch': 0.4,
+  'italian-hitch': 0.26
+};
 
 const App = () => {
-
   return (
-
     <Suspense fallback={<SuspenseLoader />}>
-      <AppContainer>
-        <Router>
-          <Switch>
-            {routes.map(route => {
-              const View = route.component;
-              // const hasSteps = route.stepCount;
-              // if (hasSteps) {
-              //   new Array(route.stepCount).map((v, i) => <Route key={`${route.path}/${i}`}} path={route.path} />)
-              // }
-              return (
-                <Route key={route.path} path={route.path} exact={route.exact}>
+      <Router>
+        <Switch>
+          {routes.map(route => {
+
+            const { slug, path, exact, color } = route;
+            const View = slug === 'menu' ? MenuView : KnotView;
+            const themeColor = slug === 'menu' ? colors.lightBlue :  css`${lightenFunc(lightIndex[slug], color)}`;
+
+            // const hasSteps = route.stepCount;
+            // if (hasSteps) {
+            //   new Array(route.stepCount).map((v, i) => <Route key={`${route.path}/${i}`}} path={route.path} />)
+            // }
+
+            return (
+              <Route key={path} path={path} exact={exact}>
+                <AppContainer theme={themeColor}>
                   <Nav {...route} />
                   <Main>
                     <View {...route} />
                   </Main>
-                </Route>
-              );
-            })}
-          </Switch>
-        </Router>
-      </AppContainer>
+                </AppContainer>
+              </Route>
+            );
+
+          })}
+        </Switch>
+      </Router>
     </Suspense>
   );
 }
