@@ -24,10 +24,14 @@
 
 // https://stackoverflow.com/questions/34343085/react-router-creating-nested-routes-with-no-component-nesting
 
+// notes / lessons learnt:
+// https://github.com/i18next/react-i18next/issues/735
+// https://github.com/gaearon/react-hot-loader/issues/620
+
 import React from 'react';
 import { NavLink, useLocation } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import { darkenFunc } from '../style/styleFunctions';
 import { buttonLinkMixin } from './Buttons';
@@ -97,8 +101,6 @@ const NextLink = styled(PrevLink)`
 
 const KnotView = ({ slug, DetailedSvg, knotWidth, stepCount, color }) => {
 
-  // translation not working for sub routes on refresh
-  // - works on main routes though
   const { t } = useTranslation(['common', slug]);
 
   const { pathname } = useLocation();
