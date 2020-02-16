@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import styled, { css } from 'styled-components';
 
@@ -8,7 +8,7 @@ import useHover from '../hooks/useHover';
 import { breakpoint } from '../style/styleVariables';
 import { subTitleMixin } from '../style/Typography';
 
-const KnotLink = styled(Link)`
+const KnotLink = styled(NavLink)`
   width: 50%;
   height: 50%;
   max-width: 50vw;

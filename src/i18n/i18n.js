@@ -22,7 +22,7 @@ i18n
     },
     // React Options
     react: {
-      transEmptyNodeValue: '',
+      transEmptyNodeValue: ''
     },
     // ns: ['common', 'error'],
     // defaultNS: 'common',

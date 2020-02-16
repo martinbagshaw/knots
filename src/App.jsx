@@ -66,6 +66,7 @@ const App = () => {
                 <Route
                   key={`${path}/${step}`}
                   path={`${path}/${step}`}
+                  exact={exact}
                   component={() => renderRoute(route)} />
               ).concat(
                 <Route key={path} path={path} exact={exact} component={() => renderRoute(route)} />

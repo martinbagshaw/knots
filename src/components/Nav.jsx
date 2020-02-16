@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
@@ -29,13 +29,13 @@ const NavContainer = styled.nav`
   color: ${colors.black};
 `;
 
-const NavLink = styled(Link)`
+const StyledLink = styled(NavLink)`
   color: ${props => props.color};
   text-decoration: none;
   padding-left: 0.5rem;
 `;
 
-const BackLink = styled(Link)`
+const BackLink = styled(NavLink)`
   color: transparent;
   text-decoration: none;
   padding-right: 1rem;
@@ -49,7 +49,7 @@ const Nav = ({ slug, path, color }) => {
     <NavBar>
       <NavContainer>
         {path !== '/' && <BackLink to='/'><Chevron direction="left"/></BackLink>}
-        {t('common:title')} | <NavLink to={path} color={color}>{subTitle}</NavLink>
+        {t('common:title')} | <StyledLink to={path} color={color}>{subTitle}</StyledLink>
       </NavContainer>
     </NavBar>
   );
