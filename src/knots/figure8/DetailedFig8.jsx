@@ -8,8 +8,7 @@ import { Mask, Rope } from '../common/knotStyles';
 // - figure out where to handle the logic (here, in routes.js, or elsewhere)
 // - probably better higher up, then pass down with a context
 // - write / draw a timeline of events
-// - each step results in a stroke dashoffset to animate the rope
-// - shape morping occurs at end when knot is dressed
+// - steps may combine scale and transform animation, stroke dashOffset animation, and shape morphing
 
 
 

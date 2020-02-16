@@ -48,20 +48,32 @@ const App = () => {
             const View = slug === 'menu' ? MenuView : KnotView;
             const themeColor = slug === 'menu' ? colors.lightBlue :  css`${lightenFunc(lightIndex[slug], color)}`;
 
-            // const hasSteps = route.stepCount;
-            // if (hasSteps) {
-            //   new Array(route.stepCount).map((v, i) => <Route key={`${route.path}/${i}`}} path={route.path} />)
-            // }
-
-            return (
-              <Route key={path} path={path} exact={exact}>
+            const renderRoute = route => {
+              return (
                 <AppContainer theme={themeColor}>
                   <Nav {...route} />
                   <Main>
                     <View {...route} />
                   </Main>
                 </AppContainer>
-              </Route>
+              );
+            };
+
+            const hasSteps = route.stepCount;
+            if (hasSteps) {
+              const steps = Array.from({ length: route.stepCount }, (_, index) => index + 1);
+              return steps.map(step => 
+                <Route
+                  key={`${path}/${step}`}
+                  path={`${path}/${step}`}
+                  component={() => renderRoute(route)} />
+              ).concat(
+                <Route key={path} path={path} exact={exact} component={() => renderRoute(route)} />
+              );
+            }
+
+            return (
+              <Route key={path} path={path} exact={exact} component={() => renderRoute(route)} />
             );
 
           })}

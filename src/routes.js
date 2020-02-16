@@ -45,7 +45,7 @@ export default [
   {
     exact: true,
     path: '/figure-8',
-    slug: 'figure8',
+    slug: 'figure-8',
     SimpleSvg: BasicFig8,
     DetailedSvg: Fig8Detailed,
     knotWidth: 220,
@@ -57,6 +57,7 @@ export default [
     path: '/bowline',
     slug: 'bowline',
     SimpleSvg: BasicBowline,
+    stepCount: 8,
     color: purple,
   },
   {

@@ -1,44 +1,46 @@
 // KnotView
 // - contains knot and content
-// - handles state for steps
-// - could be split up more as this gets more complex
+// - state for each step is custom, and specific to the route
 // - ideally handle routing here for individual steps
-
-// TODO:
-// - think about architecture a bit:
+// - think about architecture
 
 // routing
-// - probably needs to be handled higher up
+// - needs to be handled higher up
 // - forward and backward steps change links
 // - each link contains an animation
-
+// - disable forward link until animation is complete
+// - back link to run animation backwards
 
 // animations
 // - one animation must end before the next starts
 // - if attached to the route, we must immediately flick animation to start / finish
 // ... of the previous, when switching
-// - may be best to store animations within knot jsx
-// - try to get common animations in the same file though.
-// - use simple for overview, and detailed for animations?
 
+// implementation
+// - subscribe to a context, based on slug
+// - from context, we get the state to display according to the route, e.g. /figure-8/step{1}/
+// - context gives us all the animation instructions
+// - if an animation is running (store in local state), we disable route change (increment)
 
+// https://stackoverflow.com/questions/34343085/react-router-creating-nested-routes-with-no-component-nesting
 
-import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import React from 'react';
+import { NavLink, useLocation } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import styled, { css } from 'styled-components';
 
-
-import styled from 'styled-components';
-import { buttonLinkMixin, Button } from './Buttons';
-// import Chevron from './Chevron';
+import { darkenFunc } from '../style/styleFunctions';
+import { buttonLinkMixin } from './Buttons';
+import Chevron from './Chevron';
 import { View } from '../style/Layout';
 import { Title, Paragraph } from '../style/Typography';
 import { breakpoint, colors } from '../style/styleVariables';
 
-const Info = styled.article`
+const Content = styled.article`
   padding: 1rem 1rem 1.5rem;
   background-color: rgba(0, 0, 0, 0.5);
   color: ${colors.white};
+  z-index: 1;
   @media (min-width: ${breakpoint.tablet}px) {
     flex: 1;
     max-width: calc(50% - 1rem);
@@ -47,7 +49,7 @@ const Info = styled.article`
   }
 `;
 
-const Knot = styled.div`
+const KnotContainer = styled.div`
   padding: 1rem;
   display: flex;
   justify-content: center;
@@ -58,66 +60,91 @@ const Knot = styled.div`
   }
 `;
 
-const StepLink = styled(Link)`
-  ${buttonLinkMixin};
-  /* ${props => props.isBlack && `background-color: ${colors.black}`};
-  &:hover,
-  &:focus {
-    ${props => props.isBlack && `background-color: ${colors.black}`};
-  } */
+const LinkContainer = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
-const StepButton = styled(Button)`
+const PrevLink = styled(NavLink)`
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
   ${buttonLinkMixin};
-  /* ${props => props.isBlack && `background-color: ${colors.black}`};
-  &:hover,
-  &:focus {
-    ${props => props.isBlack && `background-color: ${colors.black}`};
-  } */
+  margin-right: 1rem;
+  ${props => props.color && `
+    background-color: ${props.color};
+  `}
+  ${props => props.hovercolor && `
+    &:hover,
+    &:focus {
+      background-color: ${props.hovercolor}
+    }
+  `}
 `;
 
-// TODO:
-// 1. disable button until animation has run
+const NextLink = styled(PrevLink)`
+  ${props => props.isblack && `
+    background-color: ${colors.black};
+    &:hover,
+    &:focus {
+      background-color: ${colors.blackGrey};
+    }
+  `};
+  span {
+    margin-right: 1rem;
+  }
+`;
 
-// 2.
-// - routing of steps (need to handle this is App and routes.js)
-// - hard to achieve with animations perhaps
-// - more on this:
-// https://stackoverflow.com/questions/34343085/react-router-creating-nested-routes-with-no-component-nesting
+const KnotView = ({ slug, DetailedSvg, knotWidth, stepCount, color }) => {
 
-
-
-const KnotView = ({ slug, DetailedSvg, knotWidth, stepCount }) => {
-
+  // translation not working for sub routes on refresh
+  // - works on main routes though
   const { t } = useTranslation(['common', slug]);
-  const [step, getStep] = useState(0);
-  // console.log('[content.jsx] step', step);
 
-  const title = step === 0 ? t(`${slug}:title`) : `${t('common:step')} ${step}`;
+  const { pathname } = useLocation();
+  const stepString = pathname.match(/.*\/(.*)/)[1];
+  const step = parseInt(stepString) ? parseInt(stepString) : 0;
+
+  const title = step === 0 ? t(`${slug}:title`) : t(`common:steps.${step}`);
   const paragraph = step === 0 ? t(`${slug}:overview.paragraph`) : t(`${slug}:steps.${step}`);
 
+  const prevLink = step > 1 ? `/${slug}/${step - 1}` : `/${slug}`;
+  const nextLink = step < stepCount ? `/${slug}/${step + 1}` : '/';
+  const nextText = step < stepCount ? `Step ${step + 1}` : t('common:back');
+
+  const darkness = slug === 'clove-hitch' ? 0.1 : 0.2;
+  const hovercolor = darkenFunc(darkness, color)[1];
 
   return (
     <View isReverse>
-      <Info>
+      <Content>
         <Title>{title}</Title>
         <Paragraph>{paragraph}</Paragraph>
-        
-        {/* <StepLink to={`figure-8/step-${step + 1}`}>{`Step ${step + 1}`}
-          <Chevron fill="white"/>
-        </StepLink> */}
 
-        <StepButton
-          onClick={() => step < stepCount ? getStep(step + 1) : null}
-          isBlack={step === stepCount}>
-          {step < stepCount ? `Step ${step + 1}` : 'Back to Knots' }
-          </StepButton>
+        <LinkContainer>
+          {step > 0 &&
+            <PrevLink to={prevLink} hovercolor={hovercolor} color={color}>
+              <Chevron width={15} stroke='white' titleTag={t('common:prev')} />
+            </PrevLink>
+          }
           
-      </Info>
+          <NextLink
+            to={nextLink}
+            hovercolor={hovercolor}
+            color={color}
+            isblack={step === stepCount ? true : undefined}>
+            <span>{nextText}</span>
+            {step < stepCount &&
+              <Chevron direction='right' width={15} stroke='white' titleTag={t('common:next')} />
+            }
+          </NextLink>
+        </LinkContainer>
+          
+      </Content>
       {DetailedSvg &&
-        <Knot>
+        <KnotContainer>
           <DetailedSvg width={knotWidth} stepNumber={step}/>
-        </Knot>
+        </KnotContainer>
       }
     </View>
   );

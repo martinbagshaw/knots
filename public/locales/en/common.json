@@ -7,5 +7,16 @@
     "pros": "Benefits",
     "cons": "Drawbacks"
   },
-  "step": "Step"
+  "steps": {
+    "1": "Step 1",
+    "2": "Step 2",
+    "3": "Step 3",
+    "4": "Step 4",
+    "5": "Step 5",
+    "6": "Step 6"
+  },
+  "step-label": "Step",
+  "back": "Back to Knots",
+  "next": "Next Step",
+  "prev": "Previous Step"
 }

@@ -4,8 +4,7 @@ import { colors, fontFamily } from '../style/styleVariables';
 const buttonLinkMixin = css`
   border: 0;
   margin-top: 1rem;
-  min-width: 9rem;
-  padding: 1rem 2rem;
+  padding: 1rem 1.25rem;
   line-height: 1;
   font-family: ${fontFamily.main};
   font-weight: 600;
