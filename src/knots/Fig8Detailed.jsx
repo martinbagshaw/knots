@@ -48,8 +48,8 @@ const Rope = styled.path`
 
 const Fig8Detailed = ({ width = 600, stepNumber = null }) => {
   
-  console.log('fig 8 detailed');
-  console.log('stepNumber', stepNumber);
+  // console.log('fig 8 detailed');
+  // console.log('stepNumber', stepNumber);
 
   // TODO
   // - split out parts of fig-8-detailed.svg and render on the page
@@ -82,10 +82,10 @@ const Fig8Detailed = ({ width = 600, stepNumber = null }) => {
 
 
 
-    <path id="4" fill="none" stroke={mint} stroke-width="40" stroke-miterlimit="10" d="M522.737,1128.647
+    <path id="4" fill="none" stroke={mint} strokeWidth="40" strokeMiterlimit="10" d="M522.737,1128.647
       c-29.976,26.748-86.563,45.836-169.926,47.923"/>
 
-    <path id="7" fill="none" stroke={darkBlue} stroke-width="40" stroke-miterlimit="10" d="M290.421,0.096v273.472
+    <path id="7" fill="none" stroke={darkBlue} strokeWidth="40" strokeMiterlimit="10" d="M290.421,0.096v273.472
       c0,44.578-18.043,84.941-47.223,114.187L85.224,557.307C56.042,586.551,38,626.915,38,671.493
       c0,56.25,57.42,124.666,130.668,124.666c72.086,0,150.665-39.379,150.665-128.666c0-80.084-111.228-154.688-111.228-154.688
       s-28.517-20.729-38.017-30.063"/>
@@ -103,32 +103,32 @@ const Fig8Detailed = ({ width = 600, stepNumber = null }) => {
 
 
 
-    <path id="6" fill="none" stroke={purple} stroke-width="40" stroke-miterlimit="10" d="M126.733,443.159
+    <path id="6" fill="none" stroke={purple} strokeWidth="40" strokeMiterlimit="10" d="M126.733,443.159
       c-25.878-26.906-52.025-79.667-52.025-125.881c0-87.536,98.759-168.869,197.236-168.869s181.238,95.426,181.238,187.236
       c0,54.264-5.762,90.264-53.558,138.415c-50.203,50.35-76.06,76.1-76.06,76.1"/>
 
-    <path id="2" fill="none" stroke={red} stroke-width="40" stroke-miterlimit="10" d="M141.254,429.241
+    <path id="2" fill="none" stroke={red} strokeWidth="40" strokeMiterlimit="10" d="M141.254,429.241
       c-25.167-26.167-40.976-56.333-40.976-101.277c0-75.556,72.379-148.666,161.666-148.666s161.668,72.38,161.668,161.666
       c0,44.578-18.043,84.941-47.223,114.187l-73.969,74.008"/>
 
 
     {/* LEFT BUCKLE: this needs to be split into 2: */}
     {/* 2nd part goes behind mint */}
-    <path fill="none" stroke={grey} stroke-width="50" stroke-linecap="round" stroke-miterlimit="10" d="M95.624,1221.036
+    <path fill="none" stroke={grey} strokeWidth="50" strokeLinecap="round" strokeMiterlimit="10" d="M95.624,1221.036
       c0,0,131.318-324.546,279.523,0"/>
 
 
-    <path id="5" fill="none" stroke={green} stroke-width="40" stroke-miterlimit="10" d="M280.754,592.408l-37.24,37.585
+    <path id="5" fill="none" stroke={green} strokeWidth="40" strokeMiterlimit="10" d="M280.754,592.408l-37.24,37.585
       c-25.694,25.753-41.582,61.294-41.582,100.548l0.488,152.868c0,140,65.667,163.667,123,143.667
       c95.334-40,222.667-24.667,222.667,50.666c0,18.257-8.411,35.754-25.26,50.825"/>
 
-    <path id="3" fill="none" stroke={orange} stroke-width="40" stroke-miterlimit="10" d="M352.672,1176.576
+    <path id="3" fill="none" stroke={orange} strokeWidth="40" strokeMiterlimit="10" d="M352.672,1176.576
       c-4.996,0.125-10.088,0.188-15.276,0.188c-108.475,0-165.194-74.855-165.194-179.345s-0.006-271.015-0.006-271.015
       c0-44.578,18.043-84.941,47.223-114.188l40.669-40.142"/>
 
 
     {/* RIGHT BUCKLE: */}
-    <path fill="none" stroke={grey} stroke-width="50" stroke-linecap="round" stroke-miterlimit="10" d="M299.624,1224.036
+    <path fill="none" stroke={grey} strokeWidth="50" strokeLinecap="round" strokeMiterlimit="10" d="M299.624,1224.036
       c0,0,131.318-324.546,279.523,0"/>
 
 

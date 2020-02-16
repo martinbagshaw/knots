@@ -30,7 +30,7 @@ const titleMixin = css`
 const contentMixin = css`
   font-size: 1rem;
   font-family: ${fontFamily.main};
-  line-height: 1.35;
+  line-height: 1.5;
   font-weight: 400;
   margin: 0;
   @media (min-width: ${breakpoint.tablet}px) {

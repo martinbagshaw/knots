@@ -9,6 +9,7 @@ import Chevron from '../components/Chevron';
 import { colors } from '../style/styleVariables';
 
 const NavBar = styled.div`
+  z-index: 1;
   height: 5rem;
   position: fixed;
   top: 0;
