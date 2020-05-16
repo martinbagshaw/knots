@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { containerMixin } from '../style/Layout';
 import { subTitleMixin } from '../style/Typography';
 import Chevron from '../components/Chevron';
-import { colors } from '../style/styleVariables';
+import { breakpoint, colors } from '../style/styleVariables';
 
 const NavBar = styled.div`
   z-index: 1;
@@ -24,9 +24,12 @@ const NavContainer = styled.nav`
   ${containerMixin};
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   ${subTitleMixin};
   color: ${colors.black};
+  @media (min-width: ${breakpoint.Xsmall}px) {
+    justify-content: flex-start;
+  }
 `;
 
 const StyledLink = styled(NavLink)`
