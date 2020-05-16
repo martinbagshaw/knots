@@ -1,0 +1,23 @@
+{
+  "title": "Clove Hitch",
+  "overview": {
+    "paragraph": "The clove hitch is a knot that is quick to make and easy to adjust, making it a popular choice when equalising anchor points in traditional climbing. Under large loads, and with certain types of cord, the clove hitch can slip, but with modern climbing rope, slippage will be minimal before the knot tightens.",
+    "uses": [
+      "Equalising gear in traditional belay anchors",
+      "Equalising gear when on a route"
+    ],
+    "pros": [
+      "Quick to tie and easy to adjust",
+      "Can be tied one handed!"
+    ],
+    "cons": [
+      "Takes up more room on a carabiner than a figure 8"
+    ]
+  },
+  "steps": {
+    "1": "Form two loops in a piece of rope, placing the second loop to the right side of the first.",
+    "2": "Twist the second loop 180 degrees anti-clockwise.",
+    "3": "Clip the two loops into your equalising point (carabiner), pulling on both rope strands to tighten the clove hitch.",
+    "4": "Adjust the knot by pulling out the middle strand to loosen, then remove the slack by pulling the side you want to tighten."
+  }
+}
