@@ -2,6 +2,7 @@
   "name": "knots-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://martinbagshaw.github.io/knots/",
   "dependencies": {
     "i18next": "^19.1.0",
     "i18next-browser-languagedetector": "^4.0.1",
@@ -18,7 +19,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -34,5 +37,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
   }
 }
