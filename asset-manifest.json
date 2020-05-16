@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/knots/static/css/main.4888ec48.chunk.css",
-    "main.js": "/knots/static/js/main.f924d9f5.chunk.js",
-    "main.js.map": "/knots/static/js/main.f924d9f5.chunk.js.map",
+    "main.js": "/knots/static/js/main.19f8d2f0.chunk.js",
+    "main.js.map": "/knots/static/js/main.19f8d2f0.chunk.js.map",
     "runtime-main.js": "/knots/static/js/runtime-main.340a443f.js",
     "runtime-main.js.map": "/knots/static/js/runtime-main.340a443f.js.map",
     "static/js/2.ebfafc26.chunk.js": "/knots/static/js/2.ebfafc26.chunk.js",
     "static/js/2.ebfafc26.chunk.js.map": "/knots/static/js/2.ebfafc26.chunk.js.map",
     "index.html": "/knots/index.html",
-    "precache-manifest.e1b598de77f7d1fa97e9e011282df496.js": "/knots/precache-manifest.e1b598de77f7d1fa97e9e011282df496.js",
+    "precache-manifest.165362519e7b780b9de0ab9e4cc740bb.js": "/knots/precache-manifest.165362519e7b780b9de0ab9e4cc740bb.js",
     "service-worker.js": "/knots/service-worker.js",
     "static/css/main.4888ec48.chunk.css.map": "/knots/static/css/main.4888ec48.chunk.css.map"
   }
