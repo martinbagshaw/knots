@@ -24,7 +24,11 @@
 
 
 // detailed (knot)
-import Fig8Detailed from './knots/Fig8Detailed';
+// new version, in progress:
+// import Fig8Detailed from './knots/Fig8Detailed';
+
+
+import Figure8 from './knots/Figure8';
 
 // basic (menu)
 import BasicFig8 from './knots/figure8/BasicFig8';
@@ -47,7 +51,7 @@ export default [
     path: '/figure-8',
     slug: 'figure-8',
     SimpleSvg: BasicFig8,
-    DetailedSvg: Fig8Detailed,
+    DetailedSvg: Figure8,
     knotWidth: 220,
     stepCount: 7,
     color: blue,

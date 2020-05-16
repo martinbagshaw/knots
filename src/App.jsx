@@ -6,15 +6,14 @@ import styled, { css } from 'styled-components';
 import SuspenseLoader from './components/SuspenseLoader';
 import routes from './routes';
 import Nav from './components/Nav';
-import MenuView from './components/MenuView';
+import Home from './components/Home';
 import KnotView from './components/KnotView';
 
 import { lightenFunc } from './style/styleFunctions';
-import { colors, fontFamily } from './style/styleVariables';
+import { breakpoint, colors, fontFamily } from './style/styleVariables';
 import './style/reset.css';
 
 const AppContainer = styled.div`
-  max-height: 100vh;
   background-color: ${props => props.theme};
   @import url('https://fonts.googleapis.com/css?family=Asap:400,600');
   font-family: ${fontFamily.main};
@@ -22,6 +21,9 @@ const AppContainer = styled.div`
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  @media (min-width: ${breakpoint.laptop}px) {
+    max-height: 100vh;
+  }
 `;
 
 const Main = styled.main`
@@ -45,7 +47,7 @@ const App = () => {
           {routes.map(route => {
 
             const { slug, path, exact, color } = route;
-            const View = slug === 'menu' ? MenuView : KnotView;
+            const View = slug === 'menu' ? Home : KnotView;
             const themeColor = slug === 'menu' ? colors.lightBlue :  css`${lightenFunc(lightIndex[slug], color)}`;
 
             const renderRoute = route => {

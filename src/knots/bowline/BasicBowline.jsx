@@ -4,6 +4,9 @@ import { Mask, Rope } from '../common/knotStyles';
 import { colors } from '../../style/styleVariables';
 import { darkenFunc } from '../../style/styleFunctions';
 
+// needs re-doing
+// - paths in wrong order
+// - visible gaps
 const paths = {
   one: {
     plain: "M 214.054 0 C 214.054 68.019 214.054 136.039 214.054 204.058 C 216.531 236.327 207.065 315.808 149.382 375.579 C 77.279 450.293 22.448 500.103 20.038 609.563 C 17.628 719.023 129.498 821.052 214.054 821.052 C 298.609 821.052 408.07 796.147 408.07 649.33",
