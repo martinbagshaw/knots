@@ -28,7 +28,7 @@ i18n
     // defaultNS: 'common',
 
     backend: {
-      loadPath: 'public/locales/{{lng}}/{{ns}}.json',
+      loadPath: 'https://github.com/martinbagshaw/knots/tree/gh-pages/locales/{{lng}}/{{ns}}.json',
     },
     ns: ['common', 'error'],
     defaultNS: 'common',
