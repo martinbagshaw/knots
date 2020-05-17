@@ -23,12 +23,12 @@ i18next
     // https://stackoverflow.com/questions/59774175/react-i18next-backend-path-different-in-local-and-production-environment
     // - different path for different environments
     lng: 'en',
-    // crossDomain: true,
+    crossDomain: true,
     backend: { 
       loadPath: () => {
         // check the domain
         const host = window.location.host;
-        return (host !== 'localhost:3000' ? '/static/app/static/locales/{{lng}}/{{ns}}.json' : '/locales/{{lng}}/{{ns}}.json');
+        return (host !== 'localhost:3000' ? '/static/app/static/locales/en/{{ns}}.json' : '/locales/{{lng}}/{{ns}}.json');
       },
     },
     ns: ['common'],
