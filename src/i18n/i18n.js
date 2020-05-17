@@ -1,13 +1,10 @@
-import i18n from 'i18next';
+import i18next from 'i18next';
+import HttpApi from 'i18next-http-backend';
 import { initReactI18next } from 'react-i18next';
-
-import Backend from 'i18next-xhr-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-i18n
-  // load translation using xhr -> see /public/locales (i.e. https://github.com/i18next/react-i18next/tree/master/example/react/public/locales)
-  // learn more: https://github.com/i18next/i18next-xhr-backend
-  .use(Backend)
+i18next
+  .use(HttpApi)
   // detect user language
   .use(LanguageDetector)
   // pass the i18n instance to react-i18next.
@@ -16,7 +13,6 @@ i18n
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
     fallbackLng: 'en',
-    // debug: true,
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
@@ -24,14 +20,18 @@ i18n
     react: {
       transEmptyNodeValue: ''
     },
-    // ns: ['common', 'error'],
-    // defaultNS: 'common',
-
-    backend: {
-      loadPath: 'https://github.com/martinbagshaw/knots/tree/gh-pages/locales/{{lng}}/{{ns}}.json',
+    // crossDomain for gihub pages, get CORS
+    // - different path for different environments
+    crossDomain: true,
+    backend: { 
+      loadPath: () => {
+        // check the domain
+        const host = window.location.host;
+        return (host !== 'localhost:3000' ? 'https://github.com/martinbagshaw/knots/tree/gh-pages' : '') + '/locales/{{lng}}/{{ns}}.json';
+      },
     },
-    ns: ['common', 'error'],
+    ns: ['common'],
     defaultNS: 'common',
   });
 
-export default i18n;
+export default i18next;
