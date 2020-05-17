@@ -20,14 +20,15 @@ i18next
     react: {
       transEmptyNodeValue: ''
     },
-    // crossDomain for gihub pages, get CORS
+    // https://stackoverflow.com/questions/59774175/react-i18next-backend-path-different-in-local-and-production-environment
     // - different path for different environments
-    crossDomain: true,
+    lng: 'en',
+    // crossDomain: true,
     backend: { 
       loadPath: () => {
         // check the domain
         const host = window.location.host;
-        return (host !== 'localhost:3000' ? 'https://github.com/martinbagshaw/knots/tree/gh-pages' : '') + '/locales/{{lng}}/{{ns}}.json';
+        return (host !== 'localhost:3000' ? '/static/app/static/locales/{{lng}}/{{ns}}.json' : '/locales/{{lng}}/{{ns}}.json');
       },
     },
     ns: ['common'],
