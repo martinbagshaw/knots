@@ -28,7 +28,7 @@ i18next
       loadPath: () => {
         // check the domain
         const host = window.location.host;
-        return (host !== 'localhost:3000' ? '/static/app/static/locales/en/{{ns}}.json' : '/locales/{{lng}}/{{ns}}.json');
+        return (host !== 'localhost:3000' ? './locales/en/{{ns}}.json' : '/locales/{{lng}}/{{ns}}.json');
       },
     },
     ns: ['common'],
