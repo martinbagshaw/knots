@@ -22,13 +22,17 @@ i18next
     },
     // https://stackoverflow.com/questions/59774175/react-i18next-backend-path-different-in-local-and-production-environment
     // - different path for different environments
+
+    // - look in sources for website - locales not present, though they should be in the root folder
+    // - try the other method again
+    // - run 'npm run deploy' to publish, pushing master alone does nothing
     lng: 'en',
     crossDomain: true,
     backend: { 
       loadPath: () => {
         // check the domain
         const host = window.location.host;
-        return (host !== 'localhost:3000' ? './locales/en/{{ns}}.json' : '/locales/{{lng}}/{{ns}}.json');
+        return (host !== 'localhost:3000' ? '/knots/locales/{{lng}}/{{ns}}.json' : '/locales/{{lng}}/{{ns}}.json');
       },
     },
     ns: ['common'],
