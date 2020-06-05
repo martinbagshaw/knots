@@ -26,6 +26,7 @@ i18next
     // - look in sources for website - locales not present, though they should be in the root folder
     // - try the other method again
     // - run 'npm run deploy' to publish, pushing master alone does nothing
+    // https://martinbagshaw.github.io/knots/locales/en/common.json
     lng: 'en',
     crossDomain: true,
     backend: { 

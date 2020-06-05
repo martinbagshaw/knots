@@ -1,6 +1,7 @@
 import React, { Suspense }  from 'react';
+import { I18nextProvider } from 'react-i18next'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import './i18n/i18n';
+import i18next from './i18n/i18n';
 import styled, { css } from 'styled-components';
 
 import SuspenseLoader from './components/SuspenseLoader';
@@ -41,48 +42,50 @@ const lightIndex = {
 
 const App = () => {
   return (
-    <Suspense fallback={<SuspenseLoader />}>
-      <Router>
-        <Switch>
-          {routes.map(route => {
+    <I18nextProvider i18n={i18next}>
+      <Suspense fallback={<SuspenseLoader />}>
+        <Router>
+          <Switch>
+            {routes.map(route => {
 
-            const { slug, path, exact, color } = route;
-            const View = slug === 'menu' ? Home : KnotView;
-            const themeColor = slug === 'menu' ? colors.lightBlue :  css`${lightenFunc(lightIndex[slug], color)}`;
+              const { slug, path, exact, color } = route;
+              const View = slug === 'menu' ? Home : KnotView;
+              const themeColor = slug === 'menu' ? colors.lightBlue :  css`${lightenFunc(lightIndex[slug], color)}`;
 
-            const renderRoute = route => {
+              const renderRoute = route => {
+                return (
+                  <AppContainer theme={themeColor}>
+                    <Nav {...route} />
+                    <Main>
+                      <View {...route} />
+                    </Main>
+                  </AppContainer>
+                );
+              };
+
+              const hasSteps = route.stepCount;
+              if (hasSteps) {
+                const steps = Array.from({ length: route.stepCount }, (_, index) => index + 1);
+                return steps.map(step => 
+                  <Route
+                    key={`${path}/${step}`}
+                    path={`${path}/${step}`}
+                    exact={exact}
+                    component={() => renderRoute(route)} />
+                ).concat(
+                  <Route key={path} path={path} exact={exact} component={() => renderRoute(route)} />
+                );
+              }
+
               return (
-                <AppContainer theme={themeColor}>
-                  <Nav {...route} />
-                  <Main>
-                    <View {...route} />
-                  </Main>
-                </AppContainer>
-              );
-            };
-
-            const hasSteps = route.stepCount;
-            if (hasSteps) {
-              const steps = Array.from({ length: route.stepCount }, (_, index) => index + 1);
-              return steps.map(step => 
-                <Route
-                  key={`${path}/${step}`}
-                  path={`${path}/${step}`}
-                  exact={exact}
-                  component={() => renderRoute(route)} />
-              ).concat(
                 <Route key={path} path={path} exact={exact} component={() => renderRoute(route)} />
               );
-            }
 
-            return (
-              <Route key={path} path={path} exact={exact} component={() => renderRoute(route)} />
-            );
-
-          })}
-        </Switch>
-      </Router>
-    </Suspense>
+            })}
+          </Switch>
+        </Router>
+      </Suspense>
+    </I18nextProvider>
   );
 }
 
