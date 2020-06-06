@@ -1,7 +1,8 @@
 import React, { Suspense }  from 'react';
-import { I18nextProvider } from 'react-i18next'
+// import { I18nextProvider } from 'react-i18next'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import i18next from './i18n/i18n';
+// import i18next from './i18n/i18n';
+import './i18n/i18n';
 import styled, { css } from 'styled-components';
 
 import SuspenseLoader from './components/SuspenseLoader';
@@ -36,13 +37,13 @@ const Main = styled.main`
 const lightIndex = {
   figure8: 0.26,
   bowline: 0.23,
-  'clove-hitch': 0.4,
-  'italian-hitch': 0.26
+  clovehitch: 0.4,
+  italianhitch: 0.26
 };
 
 const App = () => {
   return (
-    <I18nextProvider i18n={i18next}>
+    // <I18nextProvider i18n={i18next}>
       <Suspense fallback={<SuspenseLoader />}>
         <Router>
           <Switch>
@@ -85,7 +86,7 @@ const App = () => {
           </Switch>
         </Router>
       </Suspense>
-    </I18nextProvider>
+    // </I18nextProvider>
   );
 }
 

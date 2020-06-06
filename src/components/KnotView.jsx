@@ -114,7 +114,7 @@ const KnotView = ({ slug, DetailedSvg, knotWidth, stepCount, color }) => {
   const nextLink = step < stepCount ? `/${slug}/${step + 1}` : '/';
   const nextText = step < stepCount ? `Step ${step + 1}` : t('common:back');
 
-  const darkness = slug === 'clove-hitch' ? 0.1 : 0.2;
+  const darkness = slug === 'clovehitch' ? 0.1 : 0.2;
   const hovercolor = darkenFunc(darkness, color)[1];
 
   return (

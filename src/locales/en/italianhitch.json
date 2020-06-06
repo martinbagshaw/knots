@@ -1,0 +1,22 @@
+{
+  "title": "Italian Hitch",
+  "overview": {
+    "paragraph": "Also known as the munter hitch, half hitch, or rolling hitch, the Italian hitch is used as part of a belay or abseil system - usually only if you drop or forget your belay plate! Unlike other knots described here, the Italian hitch is designed to slip, rubbing one strand of rope against the other to add friction to the system.",
+    "uses": [
+      "A backup for belaying or lowering if you forget or drop your belay plate"
+    ],
+    "pros": [
+      "Usable in both directions: for belaying or lowering"
+    ],
+    "cons": [
+      "Can be cumbersome, especially with half ropes",
+      "Not suitable for fast or dynamic belaying",
+      "Should only be considered as a backup"
+    ]
+  },
+  "steps": {
+    "1": "Form two loops in the rope, placing the second loop to the right hand side of the first loop. With the Italian hitch, unlike the clove hitch, you do not twist the second loop 180 degrees.",
+    "2": "Clip the two loops into your carabiner, making sure that the strand of rope with the load (climber) is closest to the spine (main shaft) of the carabiner.",
+    "3": "Pulling a strand of rope will ‘roll’ or flip the Italian hitch to the opposite side of the carabiner."
+  }
+}

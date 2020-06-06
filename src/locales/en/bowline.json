@@ -1,0 +1,25 @@
+{
+  "title": "Bowline",
+  "overview": {
+    "paragraph": "The bowline knot is the alternative to the figure 8 for tying in when climbing. Unlike the figure 8, the bowline is easy to untie should a climber take multiple or big falls, but is likely to loosen over time. Therefore, the bowline should ALWAYS be used in combination with a stopper knot, and is not recommended for beginners.",
+    "uses": [
+      "Tying in to a climbing rope",
+      "Building belay anchors"
+    ],
+    "pros": [
+      "Easy to untie after multiple falls"
+    ],
+    "cons": [
+      "Can loosen when unweighted, needs a stopper knot",
+      "Easier to tie incorrectly, and more difficult to inspect"
+    ]
+  },
+  "steps": {
+    "1": "Pass the rope through the two tie-in points on your harness.",
+    "2": "Form a small loop in the side of the rope before it reaches your harness.",
+    "3": "TFeed the tail end of the rope through the back of the loop.",
+    "4": "Pass the tail end of rope behind and around the other strand of rope, then back down through the loop you made in step 2. Pull the knot tight and close to your harness.",
+    "5": "Form a stopper knot around the two strands of rope that create the inverted ‘u’ shape in the bowline. Start from your harness, going towards the bowline. Make at least two coils, with the last coil close to the bowline.",
+    "6": "Complete the stopper knot by feeding the tail end back through the coils, towards your harness."
+  }
+}

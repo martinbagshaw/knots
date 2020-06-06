@@ -1,23 +1,23 @@
 import i18next from 'i18next';
-import HttpApi from 'i18next-http-backend';
+// import HttpApi from 'i18next-http-backend';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
 // relative imports outside of src not supported
-// import bowline from "/public/locales/en/bowline.json";
-// import cloveHitch from "/public/locales/en/clove-hitch.json";
-// import common from "/public/locales/en/common.json";
-// import figure8 from "/public/locales/en/figure-8.json";
-// import italianHitch from "/public/locales/en/italian-hitch.json";
+import bowline from "../locales/en/bowline.json";
+import clovehitch from "../locales/en/clovehitch.json";
+import common from "../locales/en/common.json";
+import figure8 from "../locales/en/figure8.json";
+import italianhitch from "../locales/en/italianhitch.json";
 
-// const resources = {
-//  en: {
-//   bowline, cloveHitch, common, figure8, italianHitch
-//  }
-// };
+const resources = {
+ en: {
+  bowline, clovehitch, common, figure8, italianhitch
+ }
+};
 
 i18next
-  .use(HttpApi)
+  // .use(HttpApi)
   // detect user language
   .use(LanguageDetector)
   // pass the i18n instance to react-i18next.
@@ -41,15 +41,15 @@ i18next
     // - run 'npm run deploy' to publish, pushing master alone does nothing
     // https://martinbagshaw.github.io/knots/locales/en/common.json
     lng: 'en',
-    // resources,
+    resources,
     crossDomain: true,
-    backend: { 
-      loadPath: () => {
-        // check the domain
-        const host = window.location.host;
-        return (host !== 'localhost:3000' ? '%PUBLIC_URL%/locales/{{lng}}/{{ns}}.json' : '/locales/{{lng}}/{{ns}}.json');
-      },
-    },
+    // backend: { 
+    //   loadPath: () => {
+    //     // check the domain
+    //     const host = window.location.host;
+    //     return (host !== 'localhost:3000' ? '%PUBLIC_URL%/locales/{{lng}}/{{ns}}.json' : '/locales/{{lng}}/{{ns}}.json');
+    //   },
+    // },
     ns: ['common'],
     defaultNS: 'common',
   });

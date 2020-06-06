@@ -38,7 +38,7 @@ const KnotTitle = styled.h2`
 const KnotLink = ({ slug, path, SimpleSvg, color }) => {
   const { t } = useTranslation(slug);
   const [hoverRef, isHovered] = useHover();
-  const darkness = slug === 'clove-hitch' ? 0.1 : 0.2;
+  const darkness = slug === 'clovehitch' ? 0.1 : 0.2;
   return (
     <AnchorLink to={path} itemcolor={color} ref={hoverRef}>
       {SimpleSvg && <SimpleSvg ishovered={isHovered} />}

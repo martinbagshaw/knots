@@ -49,7 +49,7 @@ export default [
   {
     exact: true,
     path: '/figure-8',
-    slug: 'figure-8',
+    slug: 'figure8',
     SimpleSvg: BasicFig8,
     DetailedSvg: Figure8,
     knotWidth: 220,
@@ -67,14 +67,14 @@ export default [
   {
     exact: true,
     path: '/clove-hitch',
-    slug: 'clove-hitch',
+    slug: 'clovehitch',
     SimpleSvg: BasicClove,
     color: oliveGreen,
   },
   {
     exact: true,
     path: '/italian-hitch',
-    slug: 'italian-hitch',
+    slug: 'italianhitch',
     SimpleSvg: BasicItalian,
     color: orange,
   },
