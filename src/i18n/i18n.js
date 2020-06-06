@@ -3,6 +3,19 @@ import HttpApi from 'i18next-http-backend';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
+// relative imports outside of src not supported
+// import bowline from "/public/locales/en/bowline.json";
+// import cloveHitch from "/public/locales/en/clove-hitch.json";
+// import common from "/public/locales/en/common.json";
+// import figure8 from "/public/locales/en/figure-8.json";
+// import italianHitch from "/public/locales/en/italian-hitch.json";
+
+// const resources = {
+//  en: {
+//   bowline, cloveHitch, common, figure8, italianHitch
+//  }
+// };
+
 i18next
   .use(HttpApi)
   // detect user language
@@ -28,12 +41,13 @@ i18next
     // - run 'npm run deploy' to publish, pushing master alone does nothing
     // https://martinbagshaw.github.io/knots/locales/en/common.json
     lng: 'en',
+    // resources,
     crossDomain: true,
     backend: { 
       loadPath: () => {
         // check the domain
         const host = window.location.host;
-        return (host !== 'localhost:3000' ? '/knots/locales/{{lng}}/{{ns}}.json' : '/locales/{{lng}}/{{ns}}.json');
+        return (host !== 'localhost:3000' ? '%PUBLIC_URL%/locales/{{lng}}/{{ns}}.json' : '/locales/{{lng}}/{{ns}}.json');
       },
     },
     ns: ['common'],
