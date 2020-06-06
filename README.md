@@ -1,7 +1,8 @@
 # Knots
 > learn how to tie about 2 climbing knots as that is all you will ever need!
 > Relies on css shape morphing for smooth morphing of svgs that still only works in Google Chrome. Not a nice experience in other browsers unfortunately.
-[View on Github Pages](https://martinbagshaw.github.io/knots/)
+
+~~[View on Github Pages](https://martinbagshaw.github.io/knots/)~~ - unfortunately deployment problems with i18n.
 
 ![climbing knots](./public/climbing-knots.png "Climbing Knots")
 
