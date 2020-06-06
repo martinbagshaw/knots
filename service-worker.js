@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/knots/precache-manifest.9888ad03b18982029842861a7b1e65a0.js"
+  "/knots/precache-manifest.c8d83f3211b6670c68e145a4798fcb20.js"
 );
 
 self.addEventListener('message', (event) => {
