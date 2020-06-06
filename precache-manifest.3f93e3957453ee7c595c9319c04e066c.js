@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7e8dd6f0d6620a65d8449eb2b4db60c3",
+    "revision": "d13015e7e6a4bfedd8a4e5417355e13a",
     "url": "/knots/index.html"
   },
   {
-    "revision": "deca7fe8e56d96a5bdf4",
+    "revision": "5bdcf2a8dbfce88e2884",
     "url": "/knots/static/css/main.4888ec48.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/knots/static/js/2.d1bba9d5.chunk.js"
   },
   {
-    "revision": "deca7fe8e56d96a5bdf4",
-    "url": "/knots/static/js/main.44f6dc88.chunk.js"
+    "revision": "5bdcf2a8dbfce88e2884",
+    "url": "/knots/static/js/main.8239d9e5.chunk.js"
   },
   {
     "revision": "64877d700bba18a880d4",
