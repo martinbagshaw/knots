@@ -1,16 +1,15 @@
 {
   "files": {
     "main.css": "/knots/static/css/main.4888ec48.chunk.css",
-    "main.js": "/knots/static/js/main.c63cbeb6.chunk.js",
-    "main.js.map": "/knots/static/js/main.c63cbeb6.chunk.js.map",
+    "main.js": "/knots/static/js/main.371a5edf.chunk.js",
+    "main.js.map": "/knots/static/js/main.371a5edf.chunk.js.map",
     "runtime-main.js": "/knots/static/js/runtime-main.340a443f.js",
     "runtime-main.js.map": "/knots/static/js/runtime-main.340a443f.js.map",
-    "static/js/2.4b6044a7.chunk.js": "/knots/static/js/2.4b6044a7.chunk.js",
-    "static/js/2.4b6044a7.chunk.js.map": "/knots/static/js/2.4b6044a7.chunk.js.map",
+    "static/js/2.e2057838.chunk.js": "/knots/static/js/2.e2057838.chunk.js",
+    "static/js/2.e2057838.chunk.js.map": "/knots/static/js/2.e2057838.chunk.js.map",
     "index.html": "/knots/index.html",
-    "precache-manifest.0f96ab38b8ef5bd5db35516816d0b05a.js": "/knots/precache-manifest.0f96ab38b8ef5bd5db35516816d0b05a.js",
+    "precache-manifest.9888ad03b18982029842861a7b1e65a0.js": "/knots/precache-manifest.9888ad03b18982029842861a7b1e65a0.js",
     "service-worker.js": "/knots/service-worker.js",
-    "static/css/main.4888ec48.chunk.css.map": "/knots/static/css/main.4888ec48.chunk.css.map",
-    "static/media/getFetch.cjs": "/knots/static/media/getFetch.5e98861f.cjs"
+    "static/css/main.4888ec48.chunk.css.map": "/knots/static/css/main.4888ec48.chunk.css.map"
   }
 }
